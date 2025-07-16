@@ -3,12 +3,9 @@ package project.service;
 import org.springframework.stereotype.Service;
 import project.dto.SalasDto;
 import project.dto.SalasResponseDto;
-import project.entity.SalasChatEntity;
 import project.entity.SalasEntity;
-import project.entity.SalasUsuariosEntity;
 import project.repository.SalasChatRepository;
 import project.repository.SalasRepository;
-import project.repository.SalasUsuariosRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -56,11 +53,6 @@ public class SalasService {
             novaSala.setJogadoresAtuais(0);
             novaSala.setJogadoresMaximo(dto.getJogadoresMaximos());
             repository.save(novaSala);
-
-            //Criando a tabela de chat da sala
-            SalasChatEntity novaSalaChat = new SalasChatEntity();
-            novaSalaChat.setId(novaSala.getId());
-            chatRepository.save(novaSalaChat);
 
             String mensagem = "Sala criada com sucesso!";
             SalasResponseDto response = new SalasResponseDto(mensagem, novaSala.getCodigo());
