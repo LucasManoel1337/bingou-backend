@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="160720251027-1" author="seu_nome_aqui">
+        <createTable tableName="tb_cadastro">
+
+            <column name="id" type="UNIQUEIDENTIFIER">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="senha" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cpf" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
