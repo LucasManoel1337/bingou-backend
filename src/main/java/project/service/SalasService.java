@@ -11,6 +11,7 @@ import project.repository.SalasRepository;
 import project.repository.SalasUsuariosRepository;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -24,6 +25,10 @@ public class SalasService {
         this.repository = repository;
         this.userRepository = userRepository;
         this.chatRepository = chatRepository;
+    }
+
+    public List<SalasEntity> listarTodasSalas() {
+        return repository.findAll();
     }
 
     public String criarCodigoDeSala() {

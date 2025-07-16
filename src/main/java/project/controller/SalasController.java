@@ -6,7 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import project.dto.SalasDto;
 import project.dto.SalasResponseDto;
+import project.entity.SalasEntity;
 import project.service.SalasService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/salas")
@@ -16,6 +19,11 @@ public class SalasController {
 
     public SalasController(SalasService service) {
         this.service = service;
+    }
+
+    @GetMapping("/listar")
+    public List<SalasEntity> listarSalas() {
+        return service.listarTodasSalas();
     }
 
     @PostMapping("/criar")

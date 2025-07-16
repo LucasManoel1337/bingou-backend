@@ -24,6 +24,14 @@
                 <constraints nullable="false" unique="true"/>
             </column>
 
+            <column name="nome_completo" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="data_nascimento" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+
         </createTable>
     </changeSet>
 
