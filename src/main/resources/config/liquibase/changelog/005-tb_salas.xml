@@ -8,7 +8,7 @@
     <changeSet id="160720251321-1" author="lucas">
         <createTable tableName="tb_salas">
 
-        <column name="id" type="UNIQUEIDENTIFIER">
+        <column name="id" type="CHAR(36)">
             <constraints primaryKey="true" nullable="false"/>
         </column>
 

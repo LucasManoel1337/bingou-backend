@@ -13,6 +13,7 @@ import project.repository.SaldoRepository;
 import project.service.security.CripDescripSenhaService;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Service
 public class AuthService {
@@ -35,6 +36,8 @@ public class AuthService {
             novaEntidade.setEmail(cripDescripService.criptografar(dto.getEmail()));
             novaEntidade.setCpf(cripDescripService.criptografar(dto.getCpf()));
             novaEntidade.setSenha(cripDescripService.criptografar(dto.getSenha()));
+            novaEntidade.setNomeCompleto(cripDescripService.criptografar(dto.getNomeCompleto()));
+            novaEntidade.setDataNascimento(dto.getDataNascimento());
 
             CadastroEntity usuarioSalvo = authRepository.save(novaEntidade);
 

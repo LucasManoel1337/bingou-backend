@@ -7,7 +7,7 @@
 
     <changeSet id="150720252330-1" author="lucas">
         <createTable tableName="tb_salas_chat">
-            <column name="id_sala" type="UNIQUEIDENTIFIER">
+            <column name="id_sala" type="CHAR(36)">
                 <constraints nullable="false"/>
             </column>
 

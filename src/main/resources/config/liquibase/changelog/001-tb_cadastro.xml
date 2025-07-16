@@ -8,7 +8,7 @@
     <changeSet id="160720251027-1" author="seu_nome_aqui">
         <createTable tableName="tb_cadastro">
 
-            <column name="id" type="UNIQUEIDENTIFIER">
+            <column name="id" type="CHAR(36)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 

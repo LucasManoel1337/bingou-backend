@@ -1,147 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <changeSet id="160720251445-1" author="lucas">
+    <changeSet id="160720251643-1" author="lucas">
 
+        <!-- Tabela de jogadores por sala -->
         <createTable tableName="tb_salas_usuarios">
-            <column name="id_sala" type="UNIQUEIDENTIFIER">
+            <column name="id" type="CHAR(36)">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="id_sala" type="CHAR(36)">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="jogador_1" type="VARCHAR(50)">
-                <constraints nullable="true"/>
+            <column name="id_usuario" type="CHAR(36)">
+                <constraints nullable="false"/>
             </column>
-            <column name="jogador_2" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_3" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_4" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_5" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_6" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_7" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_8" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_9" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_10" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_11" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_12" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_13" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_14" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_15" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_16" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_17" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_18" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_19" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_20" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_21" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_22" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_23" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_24" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_25" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_26" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_27" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_28" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_29" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_30" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_31" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_32" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_33" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_34" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_35" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_36" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_37" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_38" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_39" type="VARCHAR(50)">
-                <constraints nullable="true"/>
-            </column>
-            <column name="jogador_40" type="VARCHAR(50)">
-                <constraints nullable="true"/>
+
+            <column name="nome_usuario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
 
-        <!-- Correção: Adicionar a Foreign Key separadamente -->
+        <!-- FK: id_sala -> tb_salas(id_sala) -->
         <addForeignKeyConstraint
-                constraintName="fk_salas_usuarios_salas"
                 baseTableName="tb_salas_usuarios"
                 baseColumnNames="id_sala"
                 referencedTableName="tb_salas"
-                referencedColumnNames="id"/>
-    </changeSet>
+                referencedColumnNames="id"
+                constraintName="fk_salas_usuarios_sala"/>
 
+        <!-- FK: id_usuario -> tb_cadastro(id) -->
+        <addForeignKeyConstraint
+                baseTableName="tb_salas_usuarios"
+                baseColumnNames="id_usuario"
+                referencedTableName="tb_cadastro"
+                referencedColumnNames="id"
+                constraintName="fk_salas_usuarios_usuario"/>
+
+    </changeSet>
 </databaseChangeLog>

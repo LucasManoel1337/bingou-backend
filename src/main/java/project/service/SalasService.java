@@ -18,12 +18,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SalasService {
 
     private final SalasRepository repository;
-    private final SalasUsuariosRepository userRepository;
     private final SalasChatRepository chatRepository;
 
-    public SalasService(SalasRepository repository, SalasUsuariosRepository userRepository, SalasChatRepository chatRepository) {
+    public SalasService(SalasRepository repository, SalasChatRepository chatRepository) {
         this.repository = repository;
-        this.userRepository = userRepository;
         this.chatRepository = chatRepository;
     }
 
@@ -58,11 +56,6 @@ public class SalasService {
             novaSala.setJogadoresAtuais(0);
             novaSala.setJogadoresMaximo(dto.getJogadoresMaximos());
             repository.save(novaSala);
-
-            //Criando a tabela de jogadores da sala
-            SalasUsuariosEntity novaSalaJogadores = new SalasUsuariosEntity();
-            novaSalaJogadores.setId(novaSala.getId());
-            userRepository.save(novaSalaJogadores);
 
             //Criando a tabela de chat da sala
             SalasChatEntity novaSalaChat = new SalasChatEntity();

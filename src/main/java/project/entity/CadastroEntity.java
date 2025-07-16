@@ -1,10 +1,12 @@
 package project.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator; // Importe esta anotação
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -27,6 +29,13 @@ public class CadastroEntity {
 
     @Column(name = "cpf")
     private String cpf;
+
+    @Column(name = "nome_completo")
+    private String nomeCompleto;
+
+    @Column(name = "data_nascimento")
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataNascimento;
 
     @Override
     public boolean equals(Object o) {
