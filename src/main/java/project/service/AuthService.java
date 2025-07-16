@@ -27,7 +27,6 @@ public class AuthService {
         this.cripDescripService = cripDescripService;
     }
 
-    // Dentro da classe AuthService, que já tem as dependências injetadas
     @Transactional
     public String novoCadastro(CadastroDto dto) {
         try {

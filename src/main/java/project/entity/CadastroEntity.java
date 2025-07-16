@@ -14,10 +14,10 @@ import java.util.Objects;
 public class CadastroEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid2") // Use o gerador de UUID do Hibernate
+    @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "id", updatable = false, nullable = false, columnDefinition = "varchar(36)") // Mapeie para varchar
-    private String id; // <--- TIPO ALTERADO PARA STRING
+    @Column(name = "id", updatable = false, nullable = false, columnDefinition = "varchar(36)")
+    private String id;
 
     @Column(name = "email")
     private String email;
@@ -28,7 +28,6 @@ public class CadastroEntity {
     @Column(name = "cpf")
     private String cpf;
 
-    // Implementação segura de equals() e hashCode() para entidades JPA
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

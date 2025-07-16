@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="160720251321-1" author="lucas">
+        <createTable tableName="tb_salas">
+
+        <column name="id" type="UNIQUEIDENTIFIER">
+            <constraints primaryKey="true" nullable="false"/>
+        </column>
+
+        <column name="nome" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="codigo" type="VARCHAR(6)">
+            <constraints nullable="false" unique="true"/>
+        </column>
+
+        <column name="valor_entrada" type="DECIMAL(19, 2)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="valor_premio" type="DECIMAL(19, 2)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="jogadores_atuais" type="INT" defaultValue="0">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="maximo_jogadores" type="INT">
+            <constraints nullable="false"/>
+        </column>
+
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
