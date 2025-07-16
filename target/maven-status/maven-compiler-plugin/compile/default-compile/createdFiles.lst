@@ -1,0 +1,13 @@
+project\dto\LoginDto.class
+project\config\CorsConfig.class
+project\dto\CadastroDto.class
+project\properties\DatabaseConfigProperties.class
+project\config\CorsConfig$1.class
+project\repository\AuthRepository.class
+project\dto\LoginResponseDto.class
+project\service\security\CripDescripSenhaService.class
+project\config\DatabaseConfig.class
+project\controller\AuthController.class
+project\BaseApplication.class
+project\service\AuthService.class
+project\entity\CadastroEntity.class

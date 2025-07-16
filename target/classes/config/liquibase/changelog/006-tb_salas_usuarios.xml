@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <changeSet id="160720251643-1" author="lucas">
+
+        <!-- Tabela de jogadores por sala -->
+        <createTable tableName="tb_salas_usuarios">
+            <column name="id" type="CHAR(36)">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="id_sala" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="id_usuario" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="nome_usuario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- FK: id_sala -> tb_salas(id_sala) -->
+        <addForeignKeyConstraint
+                baseTableName="tb_salas_usuarios"
+                baseColumnNames="id_sala"
+                referencedTableName="tb_salas"
+                referencedColumnNames="id"
+                constraintName="fk_salas_usuarios_sala"/>
+
+        <!-- FK: id_usuario -> tb_cadastro(id) -->
+        <addForeignKeyConstraint
+                baseTableName="tb_salas_usuarios"
+                baseColumnNames="id_usuario"
+                referencedTableName="tb_cadastro"
+                referencedColumnNames="id"
+                constraintName="fk_salas_usuarios_usuario"/>
+
+    </changeSet>
+</databaseChangeLog>
