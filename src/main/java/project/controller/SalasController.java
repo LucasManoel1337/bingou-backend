@@ -31,4 +31,19 @@ public class SalasController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.criarSala(dto));
     }
 
+    @PostMapping("/entrar")
+    public ResponseEntity<SalasResponseDto> entrarSala(
+            @RequestParam String usuarioId,
+            @RequestParam String salaId) {
+        try {
+            SalasResponseDto response = service.entrarSala(usuarioId, salaId);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(new SalasResponseDto(e.getMessage(), null));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new SalasResponseDto("Erro interno: " + e.getMessage(), null));
+        }
+    }
+
 }

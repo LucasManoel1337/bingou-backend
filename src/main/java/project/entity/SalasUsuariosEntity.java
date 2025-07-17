@@ -16,10 +16,10 @@ public class SalasUsuariosEntity {
     private String id;
 
     @Column(name = "id_sala")
-    private String id_sala;
+    private String idSala;
 
     @Column(name = "id_usuario")
-    private String id_usuario;
+    private String idUsuario;
 
     @Column(name = "nome_usuario")
     private String nomeUsuario;
