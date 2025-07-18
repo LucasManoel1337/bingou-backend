@@ -16,8 +16,6 @@ import java.util.Objects;
 public class CadastroEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(name = "id", updatable = false, nullable = false, columnDefinition = "varchar(36)")
     private String id;
 
