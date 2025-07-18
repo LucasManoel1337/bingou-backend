@@ -9,6 +9,7 @@ project\controller\AuthController.class
 project\controller\SalasController.class
 project\dto\JogadorSalaDto.class
 project\service\AuthService.class
+project\controller\PingController.class
 project\entity\SalasUsuariosEntity.class
 project\repository\SalasUsuariosRepository.class
 project\entity\SalasEntity.class
