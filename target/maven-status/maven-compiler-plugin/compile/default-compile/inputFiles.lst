@@ -8,6 +8,7 @@ C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\LoginResponseDto.j
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\properties\DatabaseConfigProperties.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\SalasRepository.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\SaldoRepository.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\PingController.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\AuthController.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\AuthService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SalasDto.java
