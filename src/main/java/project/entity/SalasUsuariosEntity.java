@@ -24,4 +24,7 @@ public class SalasUsuariosEntity {
     @Column(name = "nome_usuario")
     private String nomeUsuario;
 
+    @Column(name = "pontos")
+    private int pontos;
+
 }

@@ -35,4 +35,15 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha no login: Usuário ou senha inválidos.");
         }
     }
+
+    @GetMapping("/{userId}/nome")
+    public ResponseEntity<String> buscarNome(@PathVariable String userId) {
+        try {
+            String nome = service.buscarNome(userId);
+            return ResponseEntity.ok(nome);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao buscar nome: " + e.getMessage());
+        }
+    }
 }

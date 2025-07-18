@@ -14,6 +14,7 @@ import project.service.security.CripDescripSenhaService;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 public class AuthService {
@@ -33,10 +34,11 @@ public class AuthService {
         try {
             // --- 1. Criar e salvar o usuário ---
             CadastroEntity novaEntidade = new CadastroEntity();
+            novaEntidade.setId(UUID.randomUUID().toString());
             novaEntidade.setEmail(cripDescripService.criptografar(dto.getEmail()));
             novaEntidade.setCpf(cripDescripService.criptografar(dto.getCpf()));
             novaEntidade.setSenha(cripDescripService.criptografar(dto.getSenha()));
-            novaEntidade.setNomeCompleto(cripDescripService.criptografar(dto.getNomeCompleto()));
+            novaEntidade.setNomeCompleto(dto.getNomeCompleto());
             novaEntidade.setDataNascimento(dto.getDataNascimento());
 
             CadastroEntity usuarioSalvo = authRepository.save(novaEntidade);
@@ -77,5 +79,11 @@ public class AuthService {
             System.err.println("Erro durante o login: " + e.getMessage());
             return null;
         }
+    }
+
+    public String buscarNome(String userId) {
+        return authRepository.findById(userId)
+                .map(u -> u.getNomeCompleto())
+                .orElse("Usuário não encontrado");
     }
 }

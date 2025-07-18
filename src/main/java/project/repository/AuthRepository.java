@@ -8,7 +8,7 @@ import project.entity.CadastroEntity;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface AuthRepository extends JpaRepository<CadastroEntity, UUID> {
+public interface AuthRepository extends JpaRepository<CadastroEntity, String> {
 
     Optional<CadastroEntity> findByEmail(String email);
 
