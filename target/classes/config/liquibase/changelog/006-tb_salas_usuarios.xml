@@ -25,6 +25,10 @@
             <column name="nome_usuario" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
+
+            <column name="pontos" type="INT">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <!-- FK: id_sala -> tb_salas(id_sala) -->
