@@ -1,7 +1,9 @@
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\JogadorSalaDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\SalasController.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\SalasService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\security\CripDescripSenhaService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SaldoResponseDto.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\ErrorResponseDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\LoginResponseDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\properties\DatabaseConfigProperties.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\SalasRepository.java

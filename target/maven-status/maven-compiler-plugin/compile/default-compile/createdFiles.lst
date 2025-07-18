@@ -7,6 +7,7 @@ project\dto\SaldoDto.class
 project\service\security\CripDescripSenhaService.class
 project\controller\AuthController.class
 project\controller\SalasController.class
+project\dto\JogadorSalaDto.class
 project\service\AuthService.class
 project\entity\SalasUsuariosEntity.class
 project\repository\SalasUsuariosRepository.class
@@ -24,6 +25,7 @@ project\controller\SaldoController.class
 project\dto\SalasDto.class
 project\entity\SalasChatEntity.class
 project\config\DatabaseConfig.class
+project\dto\ErrorResponseDto.class
 project\dto\SaldoResponseDto.class
 project\BaseApplication.class
 project\entity\CadastroEntity.class
