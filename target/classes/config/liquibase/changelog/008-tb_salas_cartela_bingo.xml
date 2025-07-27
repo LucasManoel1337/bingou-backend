@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="270720251530-1" author="lucas">
+        <createTable tableName="tb_sala_bingo_cartela">
+            <column name="id" type="CHAR(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="usuario_id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sala_id" type="CHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numeros_b" type="CLOB"/>
+            <column name="numeros_i" type="CLOB"/>
+            <column name="numeros_n" type="CLOB"/>
+            <column name="numeros_g" type="CLOB"/>
+            <column name="numeros_o" type="CLOB"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
