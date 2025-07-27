@@ -3,6 +3,7 @@ C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\SalasContro
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\SalasService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\security\CripDescripSenhaService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SaldoResponseDto.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\BingoCartelaRepository.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\ErrorResponseDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\LoginResponseDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\properties\DatabaseConfigProperties.java
@@ -13,9 +14,11 @@ C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\AuthControl
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\AuthService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SalasDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\entity\SaldoEntity.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\BingoController.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\entity\SalasUsuariosEntity.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\LoginDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\SalasUsuariosRepository.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\entity\BingoCartelaEntity.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\SaldoService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SaldoDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\repository\SalasChatRepository.java
@@ -27,5 +30,7 @@ C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\CadastroDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\entity\SalasEntity.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\controller\SaldoController.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\entity\CadastroEntity.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\BingoCartelaDto.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\dto\SalasResponseDto.java
+C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\service\BingoService.java
 C:\Users\LKZ\Desktop\bingou-backend\src\main\java\project\config\CorsConfig.java

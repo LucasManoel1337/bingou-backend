@@ -1,6 +1,7 @@
 package project.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import project.dto.JogadorSalaDto;
 import project.dto.SalasDto;
 import project.dto.SalasResponseDto;
@@ -25,13 +26,15 @@ public class SalasService {
     private final SaldoService saldoService;
     private final SalasUsuariosRepository usuariosRepository;
     private final AuthService authService;
+    private final BingoService bingoService;
 
-    public SalasService(SalasRepository repository, SalasChatRepository chatRepository, SaldoService saldoService, SalasUsuariosRepository usuariosRepository, AuthService authService) {
+    public SalasService(SalasRepository repository, SalasChatRepository chatRepository, SaldoService saldoService, SalasUsuariosRepository usuariosRepository, AuthService authService, BingoService bingoService) {
         this.repository = repository;
         this.chatRepository = chatRepository;
         this.saldoService = saldoService;
         this.usuariosRepository = usuariosRepository;
         this.authService = authService;
+        this.bingoService = bingoService;
     }
 
     public List<SalasEntity> listarTodasSalas() {
@@ -54,6 +57,7 @@ public class SalasService {
         throw new RuntimeException("Não foi possível gerar um código de sala único após " + tentativasMaximas + " tentativas.");
     }
 
+    @Transactional
     public SalasResponseDto criarSala(SalasDto dto) {
         try {
             //Criando a sala
@@ -75,6 +79,7 @@ public class SalasService {
         }
     }
 
+    @Transactional
     public SalasResponseDto entrarSala(String usuarioId, String salaId) {
         try {
             Optional<SalasEntity> optionalSala = repository.findById(salaId);
@@ -118,6 +123,10 @@ public class SalasService {
             usuariosEntity.setPontos(0);
             usuariosRepository.save(usuariosEntity);
 
+            if (bingoService.existeCartelaParaUsuarioESala(usuarioId, salaId) == false) {
+                bingoService.criarCartela(usuarioId, salaId);
+            }
+
             String mensagem = "Entrou na sala com sucesso!";
             SalasResponseDto response = new SalasResponseDto(mensagem, sala.getCodigo());
             return response;
@@ -142,6 +151,7 @@ public class SalasService {
                 .orElseThrow(() -> new IllegalArgumentException("Sala não encontrada com id: " + salaId));
     }
 
+    @Transactional
     public SalasResponseDto sairSala(String usuarioId, String salaId) {
         try {
             Optional<SalasEntity> optionalSala = repository.findById(salaId);
@@ -167,6 +177,8 @@ public class SalasService {
             repository.save(sala);
 
             saldoService.adicionarSaldo(usuarioId, sala.getValorEntrada());
+
+            bingoService.deletarCartelasPorUsuarioESala(usuarioId, salaId);
 
             String mensagem = "Saiu da sala com sucesso!";
             SalasResponseDto response = new SalasResponseDto(mensagem, sala.getCodigo());

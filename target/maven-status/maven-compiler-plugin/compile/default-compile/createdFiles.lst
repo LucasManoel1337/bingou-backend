@@ -6,9 +6,11 @@ project\service\SaldoService.class
 project\dto\SaldoDto.class
 project\service\security\CripDescripSenhaService.class
 project\controller\AuthController.class
+project\entity\BingoCartelaEntity$BingoCartelaEntityBuilder.class
 project\controller\SalasController.class
 project\dto\JogadorSalaDto.class
 project\service\AuthService.class
+project\service\BingoService.class
 project\controller\PingController.class
 project\entity\SalasUsuariosEntity.class
 project\repository\SalasUsuariosRepository.class
@@ -22,11 +24,15 @@ project\repository\SaldoRepository.class
 project\dto\LoginResponseDto.class
 project\dto\SalasResponseDto.class
 project\repository\SalasRepository.class
+project\repository\BingoCartelaRepository.class
 project\controller\SaldoController.class
+project\entity\BingoCartelaEntity.class
 project\dto\SalasDto.class
 project\entity\SalasChatEntity.class
 project\config\DatabaseConfig.class
 project\dto\ErrorResponseDto.class
+project\controller\BingoController.class
 project\dto\SaldoResponseDto.class
 project\BaseApplication.class
+project\dto\BingoCartelaDto.class
 project\entity\CadastroEntity.class
