@@ -2,6 +2,7 @@ package project.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -16,15 +17,15 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DatabaseConfig {
 
+    @Bean
     @Primary
-    @Bean("datasource")
-    public DataSource dataSource(DatabaseConfigProperties dbConfig) {
-        final HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl(dbConfig.getJdbcUrl());
-        ds.setUsername(dbConfig.getUsername());
-        ds.setPassword(dbConfig.getPassword());
-        ds.setDriverClassName(dbConfig.getDriverClassName());
-        return ds;
+    public DataSource primaryDataSource(DatabaseConfigProperties props) {
+        return DataSourceBuilder.create()
+                .url(props.getUrl()) // Use o novo getter .getUrl()
+                .username(props.getUsername())
+                .password(props.getPassword())
+                .driverClassName(props.getDriverClassName())
+                .build();
     }
 
     @Bean("transactionManager")
